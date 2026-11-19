@@ -1,0 +1,25 @@
+[project]
+name = "reachy-mini-pi"
+version = "0.1.0"
+description = "Reachy Mini motor control for a Raspberry Pi 4B, a Waveshare Bus Servo Adapter (A), and Feetech HL-2915-C002 servos"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["pyserial>=3.5"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+reachy-mini-pi-scan = "reachy_mini_pi.setup_motor:scan_main"
+reachy-mini-pi-setup-motor = "reachy_mini_pi.setup_motor:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
